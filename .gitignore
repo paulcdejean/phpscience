@@ -1,1 +1,4 @@
 *.so
+!example.so
+*.o
+mirror
