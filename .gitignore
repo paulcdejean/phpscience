@@ -2,3 +2,4 @@
 !example.so
 *.o
 mirror
+.cache/

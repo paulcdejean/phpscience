@@ -1,5 +1,6 @@
-libhello.so : hello.c
-	gcc -shared -o hello.so -fPIC hello.c
+paultest.so : main.go pauladd.go
+	sudo docker run -it --rm --user `id -u`:`id -g` -e GOCACHE=/go/.cache/ -v ${PWD}:/go golang \
+	go build -o paultest.so -buildmode=c-shared
 
 test :
 	php -dextension=./hello.so -m
