@@ -5,7 +5,7 @@ struct _zend_module_entry {
  unsigned int zend_api; // Usually: 20151012, the API version
  unsigned char zend_debug; // Usually: 0
  unsigned char zts; // Usually: 0
- const struct _zend_ini_entry *ini_entry; // Can be a null ptr 
+ const struct _zend_ini_entry *ini_entry; // Can be a null ptr
  const struct _zend_module_dep *deps; // Can be a null ptr
  const char *name; // The name of the module in C string format
  const struct _zend_function_entry *functions; // This is actually an ARRAY of functions structs. The last one is blank?
@@ -15,14 +15,14 @@ struct _zend_module_entry {
  int (*request_shutdown_func)(int type, int module_number); // Can be null ptr
  void (*info_func)(zend_module_entry *zend_module); // Can be null ptr
  const char *version; // A C string of the version number of the module
- size_t globals_size; 
- void* globals_ptr;
- void (*globals_ctor)(void *global);
- void (*globals_dtor)(void *global);
- int (*post_deactivate_func)(void);
- int module_started;
- unsigned char type;
- void *handle;
- int module_number;
- const char *build_id;
+ size_t globals_size; // Can be 0, if no globals!
+ void* globals_ptr; // Can be a null ptr if no globals!
+ void (*globals_ctor)(void *global); // Can be a null ptr if no globals!
+ void (*globals_dtor)(void *global); // Can be a null ptr if no globals!
+ int (*post_deactivate_func)(void); // Can be a null ptr
+ int module_started; // Usually 0?
+ unsigned char type; // Usually 1?
+ void *handle; // A pointer to ????????????????????
+ int module_number; // 39 ?????????? Set by PHP internally I think.
+ const char *build_id; // "API20151012,NTS"
 };
