@@ -31,12 +31,31 @@ struct zend_module_entry hello_module_entry = {
   .size = sizeof(struct zend_module_entry),
   .zend_api = 20151012,
   .zend_debug = 0,
-  .zts = 0
+  .zts = 0,
+  .ini_entry = NULL,
+  .deps = NULL,
+  .name = "paultest",
+  .functions = NULL,
+  .module_startup_func = NULL,
+  .module_shutdown_func = NULL,
+  .request_startup_func = NULL,
+  .request_shutdown_func = NULL,
+  .info_func = NULL,
+  .version = "0.0.1",
+  .globals_size = 0,
+  .globals_ptr = NULL,
+  .globals_ctor = NULL,
+  .globals_dtor = NULL,
+  .post_deactivate_func = NULL,
+  .module_started = 0,
+  .type = 1,
+  .handle = NULL,
+  .module_number = 0,
+  .build_id = "API20151012,NTS"
 };
 
-int get_module()
-{
-  return 0;
+struct zend_module_entry* get_module() {
+  return &hello_module_entry;
 }
 
 void hello()
